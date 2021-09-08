@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/weather.dart';
+//import 'package:weather_app/services/weather.dart';
+import 'package:weather_app/ui/loading_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,11 +19,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Weather App",
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: WeatherAppPage(),
+      theme: ThemeData.dark(),
+      home: LoadingScreen(),
     );
   }
 }
-

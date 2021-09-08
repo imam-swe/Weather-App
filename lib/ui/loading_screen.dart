@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'location_screen.dart';
+import 'package:weather_app/services/weather.dart';
 
-//import '';
 class LoadingScreen extends StatefulWidget {
-  const LoadingScreen({Key? key}) : super(key: key);
+  const LoadingScreen({Key? key, locationWeather}) : super(key: key);
 
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  //_LoadingScreenState createState() => _LoadingScreenState();
+  State<StatefulWidget> createState() {
+    return _LoadingScreenState();
+  }
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
