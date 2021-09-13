@@ -25,9 +25,11 @@ class _WeatherAppState extends State<WeatherApp> {
   final Geolocator geolocator = Geolocator();
 
   late Position _currentPosition;
+  final TextEditingController _controller = TextEditingController();
 
   String searchApiUrl =
       'https://www.metaweather.com/api/location/search/?query=';
+
   String locationApiUrl = 'https://www.metaweather.com/api/location/';
 
   initState() {
@@ -39,6 +41,10 @@ class _WeatherAppState extends State<WeatherApp> {
   void fetchSearch(String input) async {
     try {
       var searchResult = await http.get(Uri.parse(searchApiUrl + input));
+      // var searchResult = await http.get(Uri.parse(
+      //     "https://api.openweathermap.org/data/2.5/weather?q=" +
+      //         input +
+      //         "&appid=9e1adfc7ab7416ed1cac82f5af610a62"));
       var result = json.decode(searchResult.body)[0];
 
       setState(() {
@@ -166,8 +172,10 @@ class _WeatherAppState extends State<WeatherApp> {
                         Container(
                           width: 300,
                           child: TextField(
+                            controller: _controller,
                             onSubmitted: (String input) {
                               onTextFieldSubmitted(input);
+                              _controller.clear();
                             },
                             style: TextStyle(color: Colors.white, fontSize: 25),
                             decoration: InputDecoration(
