@@ -154,7 +154,11 @@ class _WeatherAppState extends State<WeatherApp> {
                         onTap: () {
                           _getCurrentLocation();
                         },
-                        child: Icon(Icons.location_city, size: 36.0),
+                        child: Icon(
+                          Icons.location_city,
+                          size: 36.0,
+                          color: Colors.greenAccent,
+                        ),
                       ),
                     )
                   ],
